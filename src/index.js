@@ -143,15 +143,27 @@ https.createServer(opt, (req, res) => {
       break;
     }
     case "/about": {
-      res.write(head);
-      res.write(`
-        <p class="post">
-          This site is written in pure node.js 8.4, and is an exercise for me in writing as well as web development.
-            If you would like to discuss either of these topics, or anything covered in this blog, feel free to
-            email me at <a href="mailto:jynn@badideas.today">jynn@badideas.today</a>
-        </p>
-      `);
-      res.end(foot);
+      let sourcePath = path.join(__dirname, "index.js");
+      fs.readFile(sourcePath, (err, data) => {
+        if(err) console.log(err);
+
+        res.write(head);
+        res.write(`
+          <p class="post">
+            This site is written in pure node.js 8.4, and is an exercise for me in writing as well as web development.
+              If you would like to discuss either of these topics, or anything covered in this blog, feel free to
+              email me at <a href="mailto:jynn@badideas.today">jynn@badideas.today</a>
+          </p>
+          <p class="post">
+            <h3>My source:</h3>
+            <code>${data}</code>
+          </p>
+        `);
+        res.end(foot);
+      });
+
+
+      break;
     }
   }
 
