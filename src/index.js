@@ -150,7 +150,7 @@ https.createServer(opt, (req, res) => {
     // });
   } else {
     let url = req.url.split('/');
-    let url = url[1].split('?')
+    url = url[1].split('?')
     console.log(url[0]);
 
 
