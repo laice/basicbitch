@@ -156,7 +156,8 @@ https.createServer(opt, (req, res) => {
               email me at <a href="mailto:jynn@badideas.today">jynn@badideas.today</a>
           </p>
           <p class="post">
-            <h3>My source:</h3>
+            <h3>Source:</h3>
+            <p>This is about 175 lines, beautified <a href="https://github.com/laice/basicbitch">https://github.com/laice/basicbitch</a> </p>
             <code>${data}</code>
           </p>
         `);
