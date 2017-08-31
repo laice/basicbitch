@@ -41,6 +41,7 @@ https.createServer(opt, (req, res) => {
                 background: #1F0026;
                 color: #1E7F00;
                 position: absolute;
+                width: 960px;
 	
                 left: 0;
                 right: 0;
