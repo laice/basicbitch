@@ -69,6 +69,8 @@ https.createServer(opt, (req, res) => {
               
               
               bottom: 0;
+              left:0;
+              right: 0;
               margin: auto;
             }
             
