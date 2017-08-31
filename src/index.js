@@ -188,7 +188,7 @@ https.createServer(opt, (req, res) => {
         // let params2 = qs.parse(urlq);
         // console.log(params2);
 
-        let urlq = url.searchParams;
+        let urlq = new url("https://badideas.today" + req.url);
 
         console.log(urlq);
 
