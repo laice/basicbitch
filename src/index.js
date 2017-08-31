@@ -17,7 +17,7 @@ https.createServer(opt, (req, res) => {
     files.forEach(file => {
       if(file !== 'post_template.json') {
         console.log('pushing file', file);
-        posts.push(require(file));
+        posts.push(require(`${file}`));
       }
     });
     console.log(`${posts.length} posts`);
