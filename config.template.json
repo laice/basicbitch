@@ -1,4 +1,5 @@
 {
-  "key": "",
-  "cert": ""
+  "key": "", //SSL private key
+  "cert": "", //SSL cert or preferably fullchain
+  "passphrase": "" // used to authorize blog updates
 }

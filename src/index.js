@@ -2,6 +2,10 @@ const config = require('../config.json');
 const fs = require('fs');
 const https = require('https');
 const path = require('path');
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database('bitch.db');
+
+db.run('CREATE TABLE IF NOT EXISTS posts (title TEXT, date TEXT, author TEXT, text TEXT, tags TEXT, id INTEGER PRIMARY KEY )');
 
 
 const opt = {
@@ -94,26 +98,27 @@ https.createServer(opt, (req, res) => {
   res.setHeader('content-type', 'text/html');
   switch(req.url) {
     case "/": {
-      fs.readdir(postDir, (err, files) => {
-        if(err) console.log(err);
-        let posts = [];
-
-        files.reverse();
-
-        files.forEach(file => {
-          if(file !== 'post_template.js') {
-            console.log('pushing file', file);
-            let postPath = path.join(postDir, file);
-            posts.push(require(`${postPath}`));
-          }
-        });
-        console.log(`${posts.length} posts`);
+      // fs.readdir(postDir, (err, files) => {
+      //   if(err) console.log(err);
+      //   let posts = [];
+      //
+      //   files.reverse();
+      //
+      //   files.forEach(file => {
+      //     if(file !== 'post_template.js') {
+      //       console.log('pushing file', file);
+      //       let postPath = path.join(postDir, file);
+      //       posts.push(require(`${postPath}`));
+      //     }
+      //   });
+      //   console.log(`${posts.length} posts`);
 
 
 
         res.write(head);
 
-        posts.forEach((post, i) => {
+        //posts.forEach((post, i) => {
+        db.each("select * from (select * from posts order by id ASC limit 10) order by id DESC", (err, post) => {
           console.log(`${(i/posts.length)*100}%`);
           res.write(`
         
@@ -127,6 +132,8 @@ https.createServer(opt, (req, res) => {
         
           `);
 
+
+
         });
 
         console.log('100%');
@@ -139,7 +146,7 @@ https.createServer(opt, (req, res) => {
 
         res.end(foot);
 
-      })
+      // });
       break;
     }
     case "/about": {
@@ -164,6 +171,11 @@ https.createServer(opt, (req, res) => {
         res.end(foot);
       });
 
+
+      break;
+    }
+    case "/update": {
+      console.log(req.params);
 
       break;
     }

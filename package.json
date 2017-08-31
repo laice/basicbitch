@@ -12,5 +12,8 @@
   },
   "author": "jynn",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/laice_/basicbitch#readme"
+  "homepage": "https://bitbucket.org/laice_/basicbitch#readme",
+  "dependencies": {
+    "sqlite3": "^3.1.9"
+  }
 }
