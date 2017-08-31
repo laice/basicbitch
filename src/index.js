@@ -10,9 +10,7 @@ const opt = {
 };
 
 const head = `
-          <DOCTYPE html>
-          <html>
-          <head>
+          
             <title>bad ideas today</title>
             <style>
                 
@@ -72,7 +70,7 @@ const head = `
                 
                 
             </style>
-          </head>
+          
           <body>    
           
             
@@ -89,7 +87,7 @@ const foot = `
             </small>
           </p>      
           </body> 
-          </html>
+         
         `;
 https.createServer(opt, (req, res) => {
   const postDir = path.join(__dirname, "public", "posts");
@@ -114,6 +112,7 @@ https.createServer(opt, (req, res) => {
 
 
         res.write(head);
+
         posts.forEach((post, i) => {
           console.log(`${(i/posts.length)*100}%`);
           res.write(`
@@ -131,6 +130,12 @@ https.createServer(opt, (req, res) => {
         });
 
         console.log('100%');
+
+        res.write(`
+          <script>
+            
+          </script>
+        `);
 
         res.end(foot);
 
