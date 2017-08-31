@@ -28,23 +28,52 @@ https.createServer(opt, (req, res) => {
     console.log(`${posts.length} posts`);
 
     res.setHeader('content-type', 'text/html');
+
+    res.write(`
+      <doctype html5>
+      <html>
+      <head>
+        <title>bad ideas today</title>
+        <style>
+            
+            body: {
+                background: #1F0026;
+                color: #1E7F00;
+                
+            }
+        
+            post {
+                border: solid 1pt;
+            }
+            
+        </style>
+      </head>
+      <body>
+    `);
+
     posts.forEach((post, i) => {
       console.log(`${(i/posts.length)*100}%`);
       res.write(`
-      <p class="post">
-        <div class="title">${post.title}</div>
-        <div class="date"><small>${post.date}</small></div>
-        <div class="author"><small>${post.author}</small></div>
-        <p class="text">${post.text}</p>
-        <div class="tags"></div><small>${post.tags}</small></p>
-      </p>
+        <p class="post">
+          <div class="title">${post.title}</div>
+          <div class="date"><small>${post.date}</small></div>
+          <div class="author"><small>${post.author}</small></div>
+          <p class="text">${post.text}</p>
+          <div class="tags"></div><small>${post.tags}</small></p>
+        </p>
       `);
 
     });
 
     console.log('100%');
 
-    res.write(`<p><small>written 100% pure node - some might say a bad idea in itself ;) (c) 2017 badideas.today</small></p>`);
+    res.write(`
+        <p><small>written 100% pure node - some might say a bad idea in itself ;) (c) 2017 badideas.today</small></p>
+    `);
+    res.write(`
+        </body>
+        </html>
+    `);
     res.end();
 
   })
