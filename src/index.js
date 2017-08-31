@@ -177,7 +177,7 @@ https.createServer(opt, (req, res) => {
     case "/update": {
      console.log('eh?', req.params);
 
-      res.end(req.params);
+      res.end();
 
       break;
     }
