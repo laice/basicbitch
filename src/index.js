@@ -48,15 +48,19 @@ https.createServer(opt, (req, res) => {
                 border-bottom: solid 1pt;                
                 
                 max-width: 480px;
-                padding-bottom: 100px;
+                padding-bottom: 10px;
                 padding-top: 10px;
-                position: absolute;
+                 
+            }
+            
+            .postcontainer {
+              position: absolute;
                 
 	
-                left: 0;
-                right: 0;
-                
-                margin: auto; 
+              left: 0;
+              right: 0;
+              
+              margin: auto;
             }
             
             .footer {
@@ -74,7 +78,7 @@ https.createServer(opt, (req, res) => {
       <body>
     `);
     res.write(`
-      <ul>
+      <ul class="postcontainer">
     `);
     posts.forEach((post, i) => {
       console.log(`${(i/posts.length)*100}%`);
