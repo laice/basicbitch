@@ -181,16 +181,16 @@ https.createServer(opt, (req, res) => {
         break;
       }
       case "update": {
-        // let url = req.url.split("?");
-        // console.log('url to qs: ', url);
-        // url.shift();
-        // console.log('after shift', url);
-        // let params = qs.parse(url);
-        // console.log(params);
+        let url = req.url.split("?");
+        console.log('url to qs: ', url);
+        url.shift();
+        console.log('after shift', url);
+        let params2 = qs.parse(url);
+        console.log(params2);
 
         let params = qs.parse(req.url);
         console.log(params);
-        res.end(JSON.stringify(params));
+        res.end(`${params}, ${params2}`);
 
         break;
       }
