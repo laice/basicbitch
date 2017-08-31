@@ -17,7 +17,7 @@ https.createServer(opt, (req, res) => {
     if(err) console.log(err);
     let posts = [];
     files.forEach(file => {
-      if(file !== 'post_template.json') {
+      if(file !== 'post_template.js') {
         console.log('pushing file', file);
         let postPath = path.join(postDir, file);
         posts.push(require(`${postPath}`));
@@ -32,6 +32,8 @@ https.createServer(opt, (req, res) => {
       res.write(post.text);
       res.write(post.tags);
     });
+
+    console.log('100%');
 
     res.end();
 
