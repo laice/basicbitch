@@ -77,7 +77,13 @@ const head = `
         `
 
 const foot = `      
-          <p class="footer"><small>(c) 2017 <a href="https://badideas.today">badideas.today</a> | <a href="https://badideas.today/about">about this site</a> | <a href="https://goon.pub">https://goon.pub</a></small></p>
+          <p class="footer">
+            <small>
+              (c) 2017 <a href="https://badideas.today">badideas.today</a> | 
+              <a href="https://badideas.today/about">about this site</a> | 
+              <a href="https://goon.pub">https://goon.pub</a>
+            </small>
+          </p>
       
           </body>
          
