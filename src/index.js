@@ -48,7 +48,7 @@ https.createServer(opt, (req, res) => {
                 border-bottom: solid 1pt;                
                 
                 max-width: 480px;
-                padding-bottom: 10px;
+                padding-bottom: 100px;
                 padding-top: 10px;
                 position: absolute;
                 
@@ -56,7 +56,7 @@ https.createServer(opt, (req, res) => {
                 left: 0;
                 right: 0;
                 
-                /*margin: auto; */
+                margin: auto; 
             }
             
             .footer {
@@ -64,6 +64,10 @@ https.createServer(opt, (req, res) => {
               
               bottom: 0;
               margin: auto;
+            }
+            
+            ul {
+              list-style-type: none;
             }
         </style>
       </head>
