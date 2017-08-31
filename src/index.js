@@ -121,7 +121,7 @@ https.createServer(opt, (req, res) => {
             <div class="post">
               <div class="title"><strong>${post.title}</strong></div>
               <div class="date"><small>${post.date}</small></div>
-              <div class="author"><<small><i>${post.author}</i></small></div>
+              <div class="author">><small><i>${post.author}</i></small></div>
               <p class="text">${post.text}</p>
               <div class="tags"></div><small>${post.tags}</small></div>
             </div>
