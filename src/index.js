@@ -6,7 +6,7 @@ const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('bitch.db');
 const qs = require('querystring');
 const { URL } = require('url');
-db.run('CREATE TABLE IF NOT EXISTS posts (title TEXT, date TEXT, author TEXT, text TEXT, tags TEXT, id INTEGER PRIMARY KEY )');
+db.run('CREATE TABLE IF NOT EXISTS posts (title TEXT, date TEXT, author TEXT, text TEXT, tags TEXT, updated TEXT, id INTEGER PRIMARY KEY )');
 
 
 const opt = {
@@ -194,11 +194,35 @@ https.createServer(opt, (req, res) => {
 
         console.log(params);
 
-        res.end(JSON.stringify(params));
+        let title = params.get('title');
+        let date = new Date();
+        let author = params.get('author');
+        let text = params.get('text');
+        let tags = params.get('tags');
+        let id = params.get('id');
+        let key = params.get('key');
 
-        // let params = qs.parse(req.url);
-        // console.log(params);
-        // res.end(`${JSON.stringify(params)}, ${JSON.stringify(params2)}`);
+        if(key === config.passphrase) {
+          if(id) {
+            db.get('SELECT * FROM posts WHERE id=(?)', [id], (err, row) => {
+              if(err) {
+                console.log(err);
+                return;
+              }
+
+              if(row) {
+                db.run("UPDATE posts SET title=(?), updated=(?), author=(?), text=(?), tags=(?)",
+                        [title, date, author, text, tags]);
+              }
+
+            })
+          } else {
+           db.run("INSERT INTO posts (title, date, author, text, tags) VALUES (?, ?, ?, ?, ?)", [title, date, author, text, tags]);
+          }
+
+        } else {
+          console.log(`update attempted with invalid key from ${req.ip}`);
+        }
 
         break;
       }
