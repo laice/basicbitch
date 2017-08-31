@@ -222,6 +222,12 @@ https.createServer(opt, (req, res) => {
               }
 
               if(row) {
+
+                title = title || row.title;
+                author = author || row.author;
+                text = text || row.text;
+                tags = tags || row.tags;
+
                 db.run("UPDATE posts SET title=(?), updated=(?), author=(?), text=(?), tags=(?)",
                         [title, date, author, text, tags]);
               }
