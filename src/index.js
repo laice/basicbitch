@@ -115,15 +115,15 @@ https.createServer(opt, (req, res) => {
           console.log(`${(i/posts.length)*100}%`);
           res.write(`
         
-          <div class="post">
-            <div class="title">${post.title}</div>
-            <div class="date"><small>${post.date}</small></div>
-            <div class="author"><small>${post.author}</small></div>
-            <p class="text">${post.text}</p>
-            <div class="tags"></div><small>${post.tags}</small></div>
-          </div>
+            <div class="post">
+              <div class="title">${post.title}</div>
+              <div class="date"><small>${post.date}</small></div>
+              <div class="author"><small>${post.author}</small></div>
+              <p class="text">${post.text}</p>
+              <div class="tags"></div><small>${post.tags}</small></div>
+            </div>
         
-      `);
+          `);
 
         });
 
@@ -132,6 +132,7 @@ https.createServer(opt, (req, res) => {
         res.end(foot);
 
       })
+      break;
     }
     case "/about": {
       res.write(head);
