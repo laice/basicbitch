@@ -40,13 +40,7 @@ https.createServer(opt, (req, res) => {
             body {
                 background: #1F0026;
                 color: #1E7F00;
-                position: absolute;
-                width: 100%;
-	
-                left: 0;
-                right: 0;
                 
-                margin: auto;
                 
             }
         
@@ -56,6 +50,13 @@ https.createServer(opt, (req, res) => {
                 max-width: 480px;
                 padding-bottom: 10px;
                 padding-top: 10px;
+                position: absolute;
+                
+	
+                left: 0;
+                right: 0;
+                
+                margin: auto;
             }
             
         </style>
