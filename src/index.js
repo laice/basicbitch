@@ -36,7 +36,7 @@ https.createServer(opt, (req, res) => {
         <title>bad ideas today</title>
         <style>
             
-            body: {
+            body {
                 background: #1F0026;
                 color: #1E7F00;
                 
