@@ -190,9 +190,11 @@ https.createServer(opt, (req, res) => {
 
         let urlq = new URL(req.url, "https://badideas.today");
 
-        console.log(urlq);
+        let params = urlq.searchParams;
 
-        res.end(JSON.stringify(urlq));
+        console.log(params);
+
+        res.end(JSON.stringify(params));
 
         // let params = qs.parse(req.url);
         // console.log(params);
