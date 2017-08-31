@@ -135,17 +135,19 @@ https.createServer(opt, (req, res) => {
 
 
 
-    });
+    }, () => {
+      console.log('100%');
 
-    console.log('100%');
-
-    res.write(`
+      res.write(`
           <script>
             
           </script>
         `);
 
-    res.end(foot);
+      res.end(foot);
+    });
+
+
 
     // });
   } else {
