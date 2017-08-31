@@ -229,6 +229,18 @@ https.createServer(opt, (req, res) => {
 
                 db.run("UPDATE posts SET title=(?), updated=(?), author=(?), text=(?), tags=(?)",
                         [title, date, author, text, tags]);
+
+                res.write(head);
+                res.write(`
+                  <h3>Post Updated. Returning..</h3>
+                  
+                  <script>
+                  let timer = setTimeout(() => {
+                    window.open(${config.host})
+                  }, 2000);
+                  </script>
+                `);
+                res.end(foot);
               }
 
             })
