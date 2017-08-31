@@ -66,7 +66,7 @@ https.createServer(opt, (req, res) => {
             }
             
             #about {
-              
+              border: solid 1pt; 
             }
             
             .footer {
