@@ -17,7 +17,7 @@ const head = `
                 body {
                     background: #1F0026;
                     color: #1E7F00;
-                    font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono";
+                    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
                     
                     
                 }
