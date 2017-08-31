@@ -244,6 +244,22 @@ https.createServer(opt, (req, res) => {
         break;
       }
 
+      case "delete": {
+        let urlq = new URL(req.url, "https://badideas.today");
+
+        let params = urlq.searchParams;
+
+        let ids = params.get('id');
+
+        if(Array.isArray(ids)) {
+          ids.forEach(id => {
+            db.run('DELETE FROM posts WHERE id=(?)', [id])
+          })
+        } else {
+          db.run('DELETE FROM posts WHERE id=(?)', [ids])
+        }
+      }
+
       default: {
         res.writeHead(404);
         res.write(head);
