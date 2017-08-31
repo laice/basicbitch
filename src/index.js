@@ -151,7 +151,7 @@ https.createServer(opt, (req, res) => {
   } else {
     let url = req.url.split('/');
     console.log(url);
-    switch(url[0]) {
+    switch(url[1]) {
       case "/about": {
         let sourcePath = path.join(__dirname, "index.js");
         fs.readFile(sourcePath, 'utf8', (err, data) => {
