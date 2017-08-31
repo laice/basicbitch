@@ -28,7 +28,7 @@ https.createServer(opt, (req, res) => {
     });
     console.log(`${posts.length} posts`);
 
-    //res.setHeader('content-type', 'text/html');
+    res.setHeader('content-type', 'text/html');
 
     res.write(`
       <doctype html5>
