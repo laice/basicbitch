@@ -10,6 +10,7 @@ const opt = {
 
 https.createServer(opt, (req, res) => {
   fs.readdir('./public/posts', (err, files) => {
+    if(err) console.log(err);
     let posts = [];
     files.forEach(file => {
       if(file !== 'post_template.json') {
