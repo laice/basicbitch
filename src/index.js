@@ -78,7 +78,8 @@ https.createServer(opt, (req, res) => {
       <body>
     `);
     res.write(`
-      <ul class="postcontainer">
+      <div class="postcontainer">
+        <ul>
     `);
     posts.forEach((post, i) => {
       console.log(`${(i/posts.length)*100}%`);
@@ -98,8 +99,9 @@ https.createServer(opt, (req, res) => {
 
     console.log('100%');
 
-    res.write(`
-        </ul>
+    res.write(`          
+          </ul>
+        </div>
         <p class="footer"><small>written 100% pure node - some might say a bad idea in itself ;) (c) 2017 badideas.today</small></p>
     `);
     res.write(`
