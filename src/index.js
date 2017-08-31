@@ -182,7 +182,7 @@ https.createServer(opt, (req, res) => {
       }
       case "update": {
 
-        let params = qs.parse(req.url);
+        let params = qs.parse(req.url.split("?").shift());
         console.log(params);
         res.end(JSON.stringify(params));
 
