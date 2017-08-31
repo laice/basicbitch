@@ -11,13 +11,16 @@ const opt = {
 
 https.createServer(opt, (req, res) => {
 
-  fs.readdir(path.join(__dirname, "public", "posts"), (err, files) => {
+  const postDir = path.join(__dirname, "public", "posts");
+
+  fs.readdir(postDir, (err, files) => {
     if(err) console.log(err);
     let posts = [];
     files.forEach(file => {
       if(file !== 'post_template.json') {
         console.log('pushing file', file);
-        posts.push(require(`${file}`));
+        let postPath = path.join(postDir, file);
+        posts.push(require(`${postPath}`));
       }
     });
     console.log(`${posts.length} posts`);
