@@ -254,6 +254,7 @@ https.createServer(opt, (req, res) => {
                   
                   <script>
                   let timer = setTimeout(() => {
+                    console.log('redirecting to ${config.host}');
                     window.open("${config.host}");
                   }, 2000);
                   </script>
