@@ -81,9 +81,11 @@ const head = `
 const foot = `      
           <p class="footer">
             <small>
-              (c) 2017 <a href="https://badideas.today">badideas.today</a> | 
-              <a href="https://badideas.today/about">about this site</a> | 
-              <a href="https://goon.pub">https://goon.pub</a>
+              <sub>
+                (c) 2017 <a href="https://badideas.today">badideas.today</a> | 
+                <a href="https://badideas.today/about">about this site</a> | 
+                <a href="https://goon.pub">https://goon.pub</a>
+              </sub>
             </small>
           </p>      
           </body> 
@@ -117,9 +119,9 @@ https.createServer(opt, (req, res) => {
           res.write(`
         
             <div class="post">
-              <div class="title">${post.title}</div>
+              <div class="title"><strong>${post.title}</strong></div>
               <div class="date"><small>${post.date}</small></div>
-              <div class="author"><small>${post.author}</small></div>
+              <div class="author"><<small><i>${post.author}</i></small></div>
               <p class="text">${post.text}</p>
               <div class="tags"></div><small>${post.tags}</small></div>
             </div>
