@@ -13,22 +13,26 @@ https.createServer(opt, (req, res) => {
     let posts = [];
     files.forEach(file => {
       if(file !== 'post_template.json') {
+        console.log('pushing file', file);
         posts.push(require(file));
       }
     });
-
-    posts.forEach(post => {
+    console.log(`${posts.length} posts`);
+    posts.forEach((post, i) => {
+      console.log(`${(i/posts.length)*100}%`);
       res.write(post.title);
       res.write(post.date);
       res.write(post.author);
       res.write(post.text);
       res.write(post.tags);
-    })
+    });
 
     res.end();
 
   })
-});
+}).listen(1986);
+
+console.log('server started');
 
 
 
