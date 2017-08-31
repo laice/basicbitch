@@ -16,7 +16,17 @@ https.createServer(opt, (req, res) => {
         posts.push(require(file));
       }
     });
-    
+
+    posts.forEach(post => {
+      res.write(post.title);
+      res.write(post.date);
+      res.write(post.author);
+      res.write(post.text);
+      res.write(post.tags);
+    })
+
+    res.end();
+
   })
 });
 
