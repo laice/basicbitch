@@ -50,21 +50,23 @@ https.createServer(opt, (req, res) => {
                 max-width: 480px;
                 padding-bottom: 10px;
                 padding-top: 10px;
+                
+                
+                
+	
+                left: 0;
+                right: 0;
+                
+                margin: auto;
                  
             }
             
             .postcontainer {
-              position: absolute;
-                
-	
-              left: 0;
-              right: 0;
               
-              margin: auto;
             }
             
             .footer {
-              position: absolute;
+              
               
               bottom: 0;
               margin: auto;
