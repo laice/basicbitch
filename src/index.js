@@ -17,6 +17,7 @@ https.createServer(opt, (req, res) => {
     if(err) console.log(err);
     let posts = [];
 
+    files.reverse();
 
     files.forEach(file => {
       if(file !== 'post_template.js') {
