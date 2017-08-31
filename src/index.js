@@ -59,21 +59,31 @@ https.createServer(opt, (req, res) => {
                 margin: auto;
             }
             
+            .footer {
+              position: absolute;
+              
+              bottom: 0;
+              margin: auto;
+            }
         </style>
       </head>
       <body>
     `);
-
+    res.write(`
+      <ul>
+    `);
     posts.forEach((post, i) => {
       console.log(`${(i/posts.length)*100}%`);
       res.write(`
-        <div class="post">
-          <div class="title">${post.title}</div>
-          <div class="date"><small>${post.date}</small></div>
-          <div class="author"><small>${post.author}</small></div>
-          <p class="text">${post.text}</p>
-          <div class="tags"></div><small>${post.tags}</small></div>
-        </div>
+        <li>
+          <div class="post">
+            <div class="title">${post.title}</div>
+            <div class="date"><small>${post.date}</small></div>
+            <div class="author"><small>${post.author}</small></div>
+            <p class="text">${post.text}</p>
+            <div class="tags"></div><small>${post.tags}</small></div>
+          </div>
+        </li>
       `);
 
     });
@@ -81,7 +91,8 @@ https.createServer(opt, (req, res) => {
     console.log('100%');
 
     res.write(`
-        <p><small>written 100% pure node - some might say a bad idea in itself ;) (c) 2017 badideas.today</small></p>
+        </ul>
+        <p class="footer"><small>written 100% pure node - some might say a bad idea in itself ;) (c) 2017 badideas.today</small></p>
     `);
     res.write(`
         </body>
