@@ -150,6 +150,7 @@ https.createServer(opt, (req, res) => {
     // });
   } else {
     let url = req.url.split('/');
+    console.log(url);
     switch(url[0]) {
       case "/about": {
         let sourcePath = path.join(__dirname, "index.js");
