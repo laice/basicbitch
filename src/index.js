@@ -122,7 +122,7 @@ https.createServer(opt, (req, res) => {
         <script>
           let about = document.getElementById('about');
           about.onclick = () => {
-            
+            console.log(`${res.url}`);
           }
         </script>
         </html>
