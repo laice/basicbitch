@@ -190,7 +190,7 @@ https.createServer(opt, (req, res) => {
 
         let params = qs.parse(req.url);
         console.log(params);
-        res.end(`${params}, ${params2}`);
+        res.end(`${JSON.stringify(params)}, ${JSON.stringify(params2)}`);
 
         break;
       }
