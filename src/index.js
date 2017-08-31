@@ -157,7 +157,7 @@ https.createServer(opt, (req, res) => {
           </p>
           <p class="post">
             <h3>Source:</h3>
-            <p>This is about 175 lines, beautified <a href="https://github.com/laice/basicbitch">https://github.com/laice/basicbitch</a> </p>
+            <p><a href="https://github.com/laice/basicbitch">https://github.com/laice/basicbitch</a> </p>
             <code>${data}</code>
           </p>
         `);
