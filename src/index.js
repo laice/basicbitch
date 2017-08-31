@@ -4,7 +4,6 @@ const https = require('https');
 const path = require('path');
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('bitch.db');
-const qs = require('querystring');
 const { URL } = require('url');
 db.run('CREATE TABLE IF NOT EXISTS posts (title TEXT, date TEXT, author TEXT, text TEXT, tags TEXT, updated TEXT, id INTEGER PRIMARY KEY )');
 
@@ -245,7 +244,7 @@ https.createServer(opt, (req, res) => {
       }
 
       case "delete": {
-        let urlq = new URL(req.url, "https://badideas.today");
+        let urlq = new URL(req.url, config.host);
 
         let params = urlq.searchParams;
 
@@ -258,6 +257,18 @@ https.createServer(opt, (req, res) => {
         } else {
           db.run('DELETE FROM posts WHERE id=(?)', [ids])
         }
+
+        res.write(head);
+        res.write(`
+          <h3>Post Deleted. Returning..</h3>
+          
+          <script>
+          let timer = setTimeout(() => {
+            window.open(${config.host})
+          })
+          </script>
+        `);
+        res.write(foot);
       }
 
       default: {
