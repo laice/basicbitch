@@ -27,7 +27,7 @@ https.createServer(opt, (req, res) => {
     });
     console.log(`${posts.length} posts`);
 
-
+    res.setHeader('content-type', 'text/html');
     posts.forEach((post, i) => {
       console.log(`${(i/posts.length)*100}%`);
       res.write(`
