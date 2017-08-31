@@ -121,11 +121,15 @@ https.createServer(opt, (req, res) => {
     //posts.forEach((post, i) => {
     db.each("select * from (select * from posts order by id ASC limit 10) order by id DESC", (err, post) => {
 
+      let date = new Date(1970,0,1);
+      date.setMilliseconds(post.date);
+
+
       res.write(`
         
             <div class="post">
               <div class="title"><strong>${post.title}</strong></div>
-              <div class="date"><small>${post.date}</small></div>
+              <div class="date"><small>${(date.getMonth()+1)}/${date.getDate()}/${date.getFullYear()}</small></div>
               <div class="author">><small><i>${post.author}</i></small></div>
               <p class="text">${post.text}</p>
               <div class="tags"></div><small>${post.tags}</small></div>
