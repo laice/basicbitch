@@ -231,12 +231,13 @@ https.createServer(opt, (req, res) => {
                         [title, date, author, text, tags]);
 
                 res.write(head);
+                console.log(config.host);
                 res.write(`
                   <h3>Post Updated. Returning..</h3>
                   
                   <script>
                   let timer = setTimeout(() => {
-                    window.open("${config.host}");
+                    window.open("" + ${config.host});
                   }, 2000);
                   </script>
                 `);
