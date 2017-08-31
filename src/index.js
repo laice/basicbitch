@@ -168,12 +168,6 @@ https.createServer(opt, (req, res) => {
       break;
     }
   }
-
-
-
 }).listen(1986);
 
 console.log('server started');
-
-
-
