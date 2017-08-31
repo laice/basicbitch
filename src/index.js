@@ -31,7 +31,7 @@ https.createServer(opt, (req, res) => {
     res.setHeader('content-type', 'text/html');
 
     res.write(`
-      <doctype html5>
+      <!doctype html5>
       <html>
       <head>
         <title>bad ideas today</title>
@@ -104,9 +104,17 @@ https.createServer(opt, (req, res) => {
 
     res.end(`
       
-        <p class="footer"><small>written 100% pure node - some might say a bad idea in itself ;) (c) 2017 badideas.today</small></p>
+        <p class="footer"><small>(c) 2017 badideas.today | <div id="about">about this site</div></small></p>
     
         </body>
+       
+        
+        <script>
+          let about = document.getElementById('about');
+          about.onclick = () => {
+            
+          }
+        </script>
         </html>
     `);
 
