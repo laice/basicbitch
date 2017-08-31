@@ -4,6 +4,7 @@ const https = require('https');
 const path = require('path');
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('bitch.db');
+const qs = require('querystring');
 
 db.run('CREATE TABLE IF NOT EXISTS posts (title TEXT, date TEXT, author TEXT, text TEXT, tags TEXT, id INTEGER PRIMARY KEY )');
 
@@ -175,9 +176,10 @@ https.createServer(opt, (req, res) => {
       break;
     }
     case "/update": {
-     console.log('eh?', req.params);
 
-      res.end();
+      let params = qs.parse(req.url);
+      console.log(params);
+      res.end(params);
 
       break;
     }
