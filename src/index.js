@@ -28,7 +28,7 @@ https.createServer(opt, (req, res) => {
     });
     console.log(`${posts.length} posts`);
 
-    res.setHeader('content-type', 'text/html');
+    //res.setHeader('content-type', 'text/html');
 
     res.write(`
       <doctype html5>
@@ -76,8 +76,7 @@ https.createServer(opt, (req, res) => {
         </style>
       </head>
       <body>
-    `);
-    res.write(`
+    
       <div class="postcontainer">
         <ul>
     `);
@@ -103,8 +102,7 @@ https.createServer(opt, (req, res) => {
           </ul>
         </div>
         <p class="footer"><small>written 100% pure node - some might say a bad idea in itself ;) (c) 2017 badideas.today</small></p>
-    `);
-    res.write(`
+    
         </body>
         </html>
     `);
