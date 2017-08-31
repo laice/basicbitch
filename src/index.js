@@ -113,14 +113,14 @@ https.createServer(opt, (req, res) => {
     //     }
     //   });
     //   console.log(`${posts.length} posts`);
-
+    //console.log(`${(i/posts.length)*100}%`);
 
 
     res.write(head);
 
     //posts.forEach((post, i) => {
     db.each("select * from (select * from posts order by id ASC limit 10) order by id DESC", (err, post) => {
-      console.log(`${(i/posts.length)*100}%`);
+
       res.write(`
         
             <div class="post">
