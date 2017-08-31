@@ -16,6 +16,8 @@ https.createServer(opt, (req, res) => {
   fs.readdir(postDir, (err, files) => {
     if(err) console.log(err);
     let posts = [];
+
+
     files.forEach(file => {
       if(file !== 'post_template.js') {
         console.log('pushing file', file);
@@ -24,17 +26,23 @@ https.createServer(opt, (req, res) => {
       }
     });
     console.log(`${posts.length} posts`);
+
+
     posts.forEach((post, i) => {
       console.log(`${(i/posts.length)*100}%`);
-      res.write(post.title);
-      res.write(post.date);
-      res.write(post.author);
-      res.write(post.text);
-      res.write(post.tags);
+      res.write(`
+      ${post.title}
+      <small>${post.date}</small>
+      <small>${post.author}</small>
+      ${post.text}
+      <small>${post.tags}</small>
+      `);
+
     });
 
     console.log('100%');
 
+    res.write(`<p><small>written 100% pure node - a bad idea in itself ;) (c) 2017 badideas.today</small></p>`);
     res.end();
 
   })
