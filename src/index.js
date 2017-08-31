@@ -75,9 +75,8 @@ https.createServer(opt, (req, res) => {
             }
         </style>
       </head>
-      <body>
-    
-      <div class="postcontainer">
+      <body>    
+      
         
     `);
     posts.forEach((post, i) => {
