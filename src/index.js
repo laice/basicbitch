@@ -56,7 +56,7 @@ https.createServer(opt, (req, res) => {
                 left: 0;
                 right: 0;
                 
-                margin: auto;
+                /*margin: auto; */
             }
             
             .footer {
