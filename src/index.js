@@ -265,7 +265,7 @@ https.createServer(opt, (req, res) => {
           <script>
           let timer = setTimeout(() => {
             window.open(${config.host})
-          })
+          }, 2000);
           </script>
         `);
         res.end(foot);
