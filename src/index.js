@@ -5,7 +5,7 @@ const path = require('path');
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('bitch.db');
 const qs = require('querystring');
-const url = require('url');
+const { URL } = require('url');
 db.run('CREATE TABLE IF NOT EXISTS posts (title TEXT, date TEXT, author TEXT, text TEXT, tags TEXT, id INTEGER PRIMARY KEY )');
 
 
@@ -188,7 +188,7 @@ https.createServer(opt, (req, res) => {
         // let params2 = qs.parse(urlq);
         // console.log(params2);
 
-        let urlq = new url("https://badideas.today" + req.url);
+        let urlq = new URL(req.url, "https://badideas.today");
 
         console.log(urlq);
 
