@@ -46,6 +46,7 @@ https.createServer(opt, (req, res) => {
             .post {
                 border: solid 1pt;
                 max-width: 480px;
+                padding-bottom: 10px;
             }
             
         </style>
@@ -56,13 +57,13 @@ https.createServer(opt, (req, res) => {
     posts.forEach((post, i) => {
       console.log(`${(i/posts.length)*100}%`);
       res.write(`
-        <p class="post">
+        <div class="post">
           <div class="title">${post.title}</div>
           <div class="date"><small>${post.date}</small></div>
           <div class="author"><small>${post.author}</small></div>
           <p class="text">${post.text}</p>
-          <div class="tags"></div><small>${post.tags}</small></p>
-        </p>
+          <div class="tags"></div><small>${post.tags}</small></div>
+        </div>
       `);
 
     });
