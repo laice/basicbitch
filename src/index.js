@@ -142,7 +142,7 @@ https.createServer(opt, (req, res) => {
         <p class="post">
           This site is written in pure node.js 8.4, and is an exercise for me in writing as well as web development.
             If you would like to discuss either of these topics, or anything covered in this blog, feel free to
-            email me at <a class="btn" href="mailto:jynn@badideas.today">jynn@badideas.today</a>
+            email me at <a href="mailto:jynn@badideas.today">jynn@badideas.today</a>
         </p>
       `);
       res.end(foot);
