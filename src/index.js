@@ -31,13 +31,13 @@ https.createServer(opt, (req, res) => {
     posts.forEach((post, i) => {
       console.log(`${(i/posts.length)*100}%`);
       res.write(`
-      <div class="post">
+      <p class="post">
         <div class="title">${post.title}</div>
         <div class="date"><small>${post.date}</small></div>
         <div class="author"><small>${post.author}</small></div>
         <p class="text">${post.text}</p>
-        <div class="tags"></div><small>${post.tags}</small></div>
-      </div>
+        <div class="tags"></div><small>${post.tags}</small></p>
+      </p>
       `);
 
     });
