@@ -12,3 +12,5 @@ I got tired of dealing with bloated overhead apis when trying to spin up simple 
 
 
 There's no real indexing of posts, but maybe I'll add this in the future.
+
+Enjoy!
