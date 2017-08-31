@@ -5,7 +5,7 @@ const path = require('path');
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('bitch.db');
 const qs = require('querystring');
-
+const url = require('url');
 db.run('CREATE TABLE IF NOT EXISTS posts (title TEXT, date TEXT, author TEXT, text TEXT, tags TEXT, id INTEGER PRIMARY KEY )');
 
 
@@ -149,12 +149,12 @@ https.createServer(opt, (req, res) => {
 
     // });
   } else {
-    let url = req.url.split('/');
-    url = url[1].split('?')
-    console.log(url[0]);
+    let urlr = req.url.split('/');
+    urlr = urlr[1].split('?')
+    console.log(urlr[0]);
 
 
-    switch(url[0]) {
+    switch(urlr[0]) {
       case "about": {
         let sourcePath = path.join(__dirname, "index.js");
         fs.readFile(sourcePath, 'utf8', (err, data) => {
@@ -181,16 +181,22 @@ https.createServer(opt, (req, res) => {
         break;
       }
       case "update": {
-        let url = req.url.split("?");
-        console.log('url to qs: ', url);
-        url.shift();
-        console.log('after shift', url);
-        let params2 = qs.parse(url);
-        console.log(params2);
+        // let urlq = req.url.split("?");
+        // console.log('url to qs: ', urlq);
+        // urlq.shift();
+        // console.log('after shift', urlq);
+        // let params2 = qs.parse(urlq);
+        // console.log(params2);
 
-        let params = qs.parse(req.url);
-        console.log(params);
-        res.end(`${JSON.stringify(params)}, ${JSON.stringify(params2)}`);
+        let urlq = url.searchParams;
+
+        console.log(urlq);
+
+        res.end(JSON.stringify(urlq));
+
+        // let params = qs.parse(req.url);
+        // console.log(params);
+        // res.end(`${JSON.stringify(params)}, ${JSON.stringify(params2)}`);
 
         break;
       }
