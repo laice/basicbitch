@@ -1,5 +1,5 @@
 # basicbitch
-a lightweight filesystem based node blog
+a lightweight sqlite based node blog
 
 I got tired of dealing with bloated overhead apis when trying to spin up simple projects, so this is a pure node and filesystem based blog.
 
