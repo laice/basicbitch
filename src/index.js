@@ -65,7 +65,7 @@ https.createServer(opt, (req, res) => {
               
             }
             
-            #about {
+            .btn {
               border: solid 1pt; 
             }
             
@@ -81,6 +81,11 @@ https.createServer(opt, (req, res) => {
             
             ul {
               list-style-type: none;
+            }
+            
+            a {
+             color: inherit;
+             text-decoration: inherit;
             }
         </style>
       </head>
@@ -108,7 +113,7 @@ https.createServer(opt, (req, res) => {
 
     res.end(`
       
-        <p class="footer"><small>(c) 2017 badideas.today | <span id="about">about this site</span></small></p>
+        <p class="footer"><small>(c) 2017 badideas.today | <span id="about" class="btn">about this site</span> | <span id="goonpub" class="btn">https://goon.pub</span></small></p>
     
         </body>
        
