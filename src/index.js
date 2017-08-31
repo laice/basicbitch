@@ -48,6 +48,7 @@ https.createServer(opt, (req, res) => {
                 
                 max-width: 480px;
                 padding-bottom: 10px;
+                padding-top: 10px;
             }
             
         </style>
