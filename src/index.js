@@ -97,31 +97,31 @@ const foot = `
 https.createServer(opt, (req, res) => {
   const postDir = path.join(__dirname, "public", "posts");
   res.setHeader('content-type', 'text/html');
-  switch(req.url) {
-    case "/": {
-      // fs.readdir(postDir, (err, files) => {
-      //   if(err) console.log(err);
-      //   let posts = [];
-      //
-      //   files.reverse();
-      //
-      //   files.forEach(file => {
-      //     if(file !== 'post_template.js') {
-      //       console.log('pushing file', file);
-      //       let postPath = path.join(postDir, file);
-      //       posts.push(require(`${postPath}`));
-      //     }
-      //   });
-      //   console.log(`${posts.length} posts`);
+
+  if(req.url === "/") {
+    // fs.readdir(postDir, (err, files) => {
+    //   if(err) console.log(err);
+    //   let posts = [];
+    //
+    //   files.reverse();
+    //
+    //   files.forEach(file => {
+    //     if(file !== 'post_template.js') {
+    //       console.log('pushing file', file);
+    //       let postPath = path.join(postDir, file);
+    //       posts.push(require(`${postPath}`));
+    //     }
+    //   });
+    //   console.log(`${posts.length} posts`);
 
 
 
-        res.write(head);
+    res.write(head);
 
-        //posts.forEach((post, i) => {
-        db.each("select * from (select * from posts order by id ASC limit 10) order by id DESC", (err, post) => {
-          console.log(`${(i/posts.length)*100}%`);
-          res.write(`
+    //posts.forEach((post, i) => {
+    db.each("select * from (select * from posts order by id ASC limit 10) order by id DESC", (err, post) => {
+      console.log(`${(i/posts.length)*100}%`);
+      res.write(`
         
             <div class="post">
               <div class="title"><strong>${post.title}</strong></div>
@@ -135,29 +135,30 @@ https.createServer(opt, (req, res) => {
 
 
 
-        });
+    });
 
-        console.log('100%');
+    console.log('100%');
 
-        res.write(`
+    res.write(`
           <script>
             
           </script>
         `);
 
-        res.end(foot);
+    res.end(foot);
 
-      // });
-      break;
-    }
-    case "/about": {
-      let sourcePath = path.join(__dirname, "index.js");
-      fs.readFile(sourcePath, 'utf8', (err, data) => {
-        if(err) console.log(err);
-        data = data.replace(/</g,"&lt;");
-        data = data.replace(/>/g,"&gt;");
-        res.write(head);
-        res.write(`
+    // });
+  } else {
+    let url = req.url.split('/');
+    switch(url[0]) {
+      case "/about": {
+        let sourcePath = path.join(__dirname, "index.js");
+        fs.readFile(sourcePath, 'utf8', (err, data) => {
+          if(err) console.log(err);
+          data = data.replace(/</g,"&lt;");
+          data = data.replace(/>/g,"&gt;");
+          res.write(head);
+          res.write(`
           <p class="post">
             This site is written in pure node.js 8.4, and is an exercise for me in writing as well as web development.
               If you would like to discuss either of these topics, or anything covered in this blog, feel free to
@@ -169,21 +170,36 @@ https.createServer(opt, (req, res) => {
             <code>${data}</code>
           </p>
         `);
-        res.end(foot);
-      });
+          res.end(foot);
+        });
 
 
-      break;
-    }
-    case "/update": {
+        break;
+      }
+      case "/update": {
 
-      let params = qs.parse(req.url);
-      console.log(params);
-      res.end(JSON.stringify(params));
+        let params = qs.parse(req.url);
+        console.log(params);
+        res.end(JSON.stringify(params));
 
-      break;
+        break;
+      }
+
+      default: {
+        res.writeHead(404);
+        res.write(head);
+        res.write(`
+          <div class=post>
+            <h3>404 Not Found</h3>
+          </div>
+        `);
+        res.end();
+
+      }
     }
   }
+
+
 }).listen(1986);
 
 console.log('server started');
