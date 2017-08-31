@@ -31,7 +31,7 @@ https.createServer(opt, (req, res) => {
     res.setHeader('content-type', 'text/html');
 
     res.write(`
-      <!DOCTYPE html5>
+      <!DOCTYPE html>
       <html>
       <head>
         <title>bad ideas today</title>
