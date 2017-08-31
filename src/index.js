@@ -46,6 +46,7 @@ const head = `
                 
                 .btn {
                   border: solid 1pt; 
+                  padding: 1px;
                 }
                 
                 .footer {
