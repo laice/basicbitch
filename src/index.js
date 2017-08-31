@@ -44,7 +44,8 @@ https.createServer(opt, (req, res) => {
             }
         
             .post {
-                border: solid 1pt;
+                border-bottom: solid 1pt;                
+                
                 max-width: 480px;
                 padding-bottom: 10px;
             }
