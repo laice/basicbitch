@@ -246,6 +246,18 @@ https.createServer(opt, (req, res) => {
             })
           } else {
            db.run("INSERT INTO posts (title, date, author, text, tags) VALUES (?, ?, ?, ?, ?)", [title, date, author, text, tags]);
+
+            res.write(head);
+            res.write(`
+                  <h3>Post Created. Returning..</h3>
+                  
+                  <script>
+                  let timer = setTimeout(() => {
+                    window.open(${config.host})
+                  }, 2000);
+                  </script>
+                `);
+            res.end(foot);
           }
 
         } else {
