@@ -31,7 +31,7 @@ https.createServer(opt, (req, res) => {
     res.setHeader('content-type', 'text/html');
 
     res.write(`
-      <!DOCTYPE html>
+      <DOCTYPE html>
       <html>
       <head>
         <title>bad ideas today</title>
@@ -62,6 +62,10 @@ https.createServer(opt, (req, res) => {
             }
             
             .postcontainer {
+              
+            }
+            
+            #about {
               
             }
             
@@ -104,7 +108,7 @@ https.createServer(opt, (req, res) => {
 
     res.end(`
       
-        <p class="footer"><small>(c) 2017 badideas.today | <div id="about">about this site</div></small></p>
+        <p class="footer"><small>(c) 2017 badideas.today | <span id="about">about this site</span></small></p>
     
         </body>
        
