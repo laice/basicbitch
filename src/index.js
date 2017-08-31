@@ -268,7 +268,9 @@ https.createServer(opt, (req, res) => {
           })
           </script>
         `);
-        res.write(foot);
+        res.end(foot);
+
+        break;
       }
 
       default: {
