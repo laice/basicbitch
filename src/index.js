@@ -67,7 +67,6 @@ const head = `
                 
                 a {
                  color: inherit;
-                 text-decoration: inherit;
                 }
             </style>
           </head>
