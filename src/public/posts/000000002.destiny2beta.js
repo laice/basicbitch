@@ -5,5 +5,5 @@ module.exports = {
   "text":
     `   <p>destiny 2 pc is so lazy they didn’t even implement the keyboard entirely. twats</p>
     `,
-  "tags": "blizzard, real id, destiny 2"
+  "tags": "destiny 2"
 };
