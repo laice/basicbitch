@@ -67,11 +67,12 @@ https.createServer(opt, (req, res) => {
             
             .footer {
               
-              
+              width: 100%;
               bottom: 0;
               left:0;
               right: 0;
               margin: auto;
+              
             }
             
             ul {
