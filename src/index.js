@@ -19,6 +19,7 @@ const head = `
                 body {
                     background: #1F0026;
                     color: #1E7F00;
+                    font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono";
                     
                     
                 }
@@ -68,12 +69,14 @@ const head = `
                 a {
                  color: inherit;
                 }
+                
+                
             </style>
           </head>
           <body>    
           
             
-        `
+        `;
 
 const foot = `      
           <p class="footer">
@@ -82,13 +85,10 @@ const foot = `
               <a href="https://badideas.today/about">about this site</a> | 
               <a href="https://goon.pub">https://goon.pub</a>
             </small>
-          </p>
-      
-          </body>
-         
-          
+          </p>      
+          </body> 
           </html>
-        `
+        `;
 https.createServer(opt, (req, res) => {
   const postDir = path.join(__dirname, "public", "posts");
   res.setHeader('content-type', 'text/html');
