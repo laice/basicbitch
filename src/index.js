@@ -99,7 +99,7 @@ https.createServer(opt, (req, res) => {
     console.log('100%');
 
     res.end(`
-      </div>
+      
         <p class="footer"><small>written 100% pure node - some might say a bad idea in itself ;) (c) 2017 badideas.today</small></p>
     
         </body>
