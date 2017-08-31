@@ -143,10 +143,11 @@ https.createServer(opt, (req, res) => {
       break;
     }
     case "/about": {
-      let sourcePath = path.join(__dirname, "index.js");
+      let sourcePath = path.join(__dirname, 'utf8', "index.js");
       fs.readFile(sourcePath, (err, data) => {
         if(err) console.log(err);
-
+        data = data.replace(/</g,"&lt;");
+        data = data.replace(/>/g,"&gt;");
         res.write(head);
         res.write(`
           <p class="post">
