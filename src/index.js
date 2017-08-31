@@ -77,17 +77,11 @@ const head = `
         `
 
 const foot = `      
-          <p class="footer"><small>(c) 2017 badideas.today | <span id="about" class="btn">about this site</span> | <span id="goonpub" class="btn"><a href="https://goon.pub">https://goon.pub</a></span></small></p>
+          <p class="footer"><small>(c) 2017 <a href="https://badideas.today">badideas.today</a> | <a href="https://badideas.today/about">about this site</a> | <a href="https://goon.pub">https://goon.pub</a></small></p>
       
           </body>
          
           
-          <script>
-            let about = document.getElementById('about');
-            about.onclick = () => {
-              window.open("https://badideas.today/about");
-            }
-          </script>
           </html>
         `
 https.createServer(opt, (req, res) => {
