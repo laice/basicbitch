@@ -3,3 +3,4 @@
 src/public/posts/0
 .post
 *.post
+node_modules/
