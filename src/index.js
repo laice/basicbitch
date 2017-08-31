@@ -40,7 +40,12 @@ https.createServer(opt, (req, res) => {
             body {
                 background: #1F0026;
                 color: #1E7F00;
-                align-content: center;
+                position: absolute;
+	
+                left: 0;
+                right: 0;
+                
+                margin: auto;
                 
             }
         
