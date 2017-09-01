@@ -317,6 +317,6 @@ https.createServer(opt, (req, res) => {
   }
 
 
-}).listen(1986);
+}).listen(config.port);
 
 console.log('server started');
