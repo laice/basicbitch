@@ -232,12 +232,14 @@ https.createServer(opt, (req, res) => {
 
                 res.write(head);
                 console.log(config.host);
+                res.write(head);
                 res.write(`
                   <h3>Post Updated. Returning..</h3>
                   
                   <script>
                   let timer = setTimeout(() => {
-                    window.open(${config.host});
+                    console.log('redirecting to ${config.host}');
+                    window.location.replace("${config.host}");
                   }, 2000);
                   </script>
                 `);
@@ -286,11 +288,12 @@ https.createServer(opt, (req, res) => {
 
         res.write(head);
         res.write(`
-          <h3>Post Deleted. Returning..</h3>
+          <h3>Post Delted. Returning..</h3>
           
           <script>
           let timer = setTimeout(() => {
-            window.open(${config.host})
+            console.log('redirecting to ${config.host}');
+            window.location.replace("${config.host}");
           }, 2000);
           </script>
         `);
