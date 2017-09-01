@@ -196,9 +196,9 @@ https.createServer(opt, (req, res) => {
               I've also wanted an easy way to get my thoughts recorded for a long time. I also have a companion
               cordova app for this site, available at <a href="https://github.com/laice/basicbastard"> 
               https://github.com/laice/basicbastard</a> - I use it to make posts
-              from my phone. It should be fine is iOS as it isn't doing much complicated, 
+              from my phone. It should be fine in iOS as it isn't doing much complicated, 
               but I've only tested Android thus far. This is a really simple blog pipeline that's relatively easy
-              to setup for the technically savvy.
+              to setup for the technically savvy. 
             </p>
             
             <p>
