@@ -36,13 +36,13 @@ const head = `
                 }
                 
                 p {
-                  max-width: 480px;
+                  max-width: 600px;
                 }
             
                 .post {
                     border-bottom: solid 1pt;                
                     
-                    max-width: 480px;
+                    max-width: 600px;
                     padding-bottom: 10px;
                     padding-top: 10px;
                     
