@@ -37,9 +37,9 @@ const head = `
                     
                   
                     left: 5px;
-                    /* right: 0; */
+                    /* right: 0; 
                     
-                    margin: auto;
+                    margin: auto; */
                      
                 }
                 
