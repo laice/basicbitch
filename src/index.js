@@ -290,7 +290,7 @@ https.createServer(opt, (req, res) => {
 
         res.write(head);
         res.write(`
-          <h3>Post Delted. Returning..</h3>
+          <h3>Post Deleted. Returning..</h3>
           
           <script>
           let timer = setTimeout(() => {
