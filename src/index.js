@@ -265,10 +265,47 @@ https.createServer(opt, (req, res) => {
                   <h3>Post Updated. Returning..</h3>
                   
                   <script>
-                  let timer = setTimeout(() => {
-                    console.log('redirecting to ${config.host}');
-                    window.location.replace("${config.host}");
-                  }, 2000);
+                    let getOS = () => {
+                      var userAgent = window.navigator.userAgent,
+                          platform = window.navigator.platform,
+                          macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+                          windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+                          iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+                          os = null;
+                    
+                      if (macosPlatforms.indexOf(platform) !== -1) {
+                        os = 'Mac OS';
+                      } else if (iosPlatforms.indexOf(platform) !== -1) {
+                        os = 'iOS';
+                      } else if (windowsPlatforms.indexOf(platform) !== -1) {
+                        os = 'Windows';
+                      } else if (/Android/.test(userAgent)) {
+                        os = 'Android';
+                      } else if (!os && /Linux/.test(platform)) {
+                        os = 'Linux';
+                      }
+                    
+                      return os;
+                    }
+                    
+                    switch(getOS()) {
+                      case 'iOS':
+                      case 'Android':
+                        let timer = setTimeout(() => {
+                          console.log('redirecting to ${config.host}');
+                          window.location.replace("${config.host}");
+                        }, 2000);
+                        break;
+                      default:
+                        let timer = setTimeout(() => {
+                          console.log('redirecting to form');
+                          window.history.back();
+                        }, 2000);
+                        
+                        break;
+                    }
+                    
+                    
                   </script>
                 `);
                 res.end(foot);
