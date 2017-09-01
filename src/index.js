@@ -192,7 +192,8 @@ https.createServer(opt, (req, res) => {
                </p>
                
                <p>I've also wanted an easy way to get my thoughts recorded for a long time. I also have a companion
-                cordova app for this site, available at https://github.com/laice/basicbastard - I use it to make posts
+                cordova app for this site, available at <a href="https://github.com/laice/basicbastard"> 
+                https://github.com/laice/basicbastard</a> - I use it to make posts
                  from my phone. It should be fine is iOS as it isn't doing much complicated, 
                  but I've only tested Android thus far.
                </p>
