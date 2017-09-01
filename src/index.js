@@ -191,7 +191,7 @@ https.createServer(opt, (req, res) => {
               future web applications.
                </p>
               
-              </p>If you would like to discuss either of these topics, or anything covered in this blog, feel free to
+              <p>If you would like to discuss either of these topics, or anything covered in this blog, feel free to
               email me at <a href="mailto:jynn@badideas.today">jynn@badideas.today</a></p>
           </p>
           <p class="post">
