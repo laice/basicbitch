@@ -132,7 +132,7 @@ https.createServer(opt, (req, res) => {
       res.write(`
         
             <div class="post">
-              <div class="title"><strong>${post.title}</strong></div>
+              <div class="title"><strong>${post.title}</strong> - #${post.id}</div>
               <div class="date"><small>${date}</small></div>
               <div class="author">><small><i>${post.author}</i></small></div>
               <p class="text">${post.text}</p>
