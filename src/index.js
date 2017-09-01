@@ -26,6 +26,18 @@ const head = `
                     
                     
                 }
+                
+                ul {
+                  list-style-type: none;
+                }
+                
+                a {
+                 color: inherit;
+                }
+                
+                p {
+                  max-width: 480px;
+                }
             
                 .post {
                     border-bottom: solid 1pt;                
@@ -65,13 +77,7 @@ const head = `
                   
                 }
                 
-                ul {
-                  list-style-type: none;
-                }
                 
-                a {
-                 color: inherit;
-                }
                 
                 
             </style>
