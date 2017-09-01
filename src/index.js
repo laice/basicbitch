@@ -175,7 +175,8 @@ https.createServer(opt, (req, res) => {
           res.write(head);
           res.write(`
           <p class="post">
-            This site is written in pure node.js 8.4, and is an exercise for me in writing as well as web development.
+            This site is written in almost pure node.js 8.4 - the only external package is sqlite3 for database access -
+              and is an exercise for me in writing as well as web development.
               If you would like to discuss either of these topics, or anything covered in this blog, feel free to
               email me at <a href="mailto:jynn@badideas.today">jynn@badideas.today</a>
           </p>
