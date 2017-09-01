@@ -72,8 +72,8 @@ const head = `
                   bottom: 0;
                   left:0;
                   right: 0;
-                  margin: auto;
-                  padding: 10px;
+                  /*margin: auto;*/
+                  padding: 5px;
                   
                 }
                 
