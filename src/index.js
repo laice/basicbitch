@@ -4,7 +4,7 @@ const https = require('https');
 const path = require('path');
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('bitch.db');
-const { URL } = require('url');
+const {URL} = require('url');
 db.run('CREATE TABLE IF NOT EXISTS posts (title TEXT, date TEXT, author TEXT, text TEXT, tags TEXT, updated TEXT, id INTEGER PRIMARY KEY )');
 
 
@@ -102,15 +102,15 @@ const foot = `
         `;
 
 const dateMilliToString = (new_date) => {
-  let date = new Date(1970,0,1);
+  let date = new Date(1970, 0, 1);
   date.setMilliseconds(new_date);
-  return `${(date.getMonth()+1)}/${date.getDate()}/${date.getFullYear()}`
+  return `${(date.getMonth() + 1)}/${date.getDate()}/${date.getFullYear()}`
 };
 https.createServer(opt, (req, res) => {
   const postDir = path.join(__dirname, "public", "posts");
   res.setHeader('content-type', 'text/html');
 
-  if(req.url === "/") {
+  if (req.url === "/") {
     // fs.readdir(postDir, (err, files) => {
     //   if(err) console.log(err);
     //   let posts = [];
@@ -149,7 +149,6 @@ https.createServer(opt, (req, res) => {
           `);
 
 
-
     }, () => {
       console.log('100%');
 
@@ -163,7 +162,6 @@ https.createServer(opt, (req, res) => {
     });
 
 
-
     // });
   } else {
     let urlr = req.url.split('/');
@@ -171,13 +169,13 @@ https.createServer(opt, (req, res) => {
     console.log(urlr[0]);
 
 
-    switch(urlr[0]) {
+    switch (urlr[0]) {
       case "about": {
         let sourcePath = path.join(__dirname, "index.js");
         fs.readFile(sourcePath, 'utf8', (err, data) => {
-          if(err) console.log(err);
-          data = data.replace(/</g,"&lt;");
-          data = data.replace(/>/g,"&gt;");
+          if (err) console.log(err);
+          data = data.replace(/</g, "&lt;");
+          data = data.replace(/>/g, "&gt;");
           res.write(head);
           res.write(`
           <p class="post">
@@ -192,10 +190,11 @@ https.createServer(opt, (req, res) => {
                </p>
                
                <p>I've also wanted an easy way to get my thoughts recorded for a long time. I also have a companion
-                cordova app for this site, available at <a href="https://github.com/laice/basicbastard"> 
-                https://github.com/laice/basicbastard</a> - I use it to make posts
-                 from my phone. It should be fine is iOS as it isn't doing much complicated, 
-                 but I've only tested Android thus far.
+                  cordova app for this site, available at <a href="https://github.com/laice/basicbastard"> 
+                  https://github.com/laice/basicbastard</a> - I use it to make posts
+                  from my phone. It should be fine is iOS as it isn't doing much complicated, 
+                  but I've only tested Android thus far. This is a really simple blog pipeline that's relatively easy
+                  to setup for the technically savvy.
                </p>
               
               <p>If you would like to discuss these topics, or anything covered in this blog, feel free to
@@ -235,15 +234,15 @@ https.createServer(opt, (req, res) => {
         let id = params.get('id');
         let key = params.get('key');
 
-        if(key === config.passphrase) {
-          if(id) {
+        if (key === config.passphrase) {
+          if (id) {
             db.get('SELECT * FROM posts WHERE id=(?)', [id], (err, row) => {
-              if(err) {
+              if (err) {
                 console.log(err);
                 return;
               }
 
-              if(row) {
+              if (row) {
 
                 title = title || row.title;
                 author = author || row.author;
@@ -251,7 +250,7 @@ https.createServer(opt, (req, res) => {
                 tags = tags || row.tags;
 
                 db.run("UPDATE posts SET title=(?), updated=(?), author=(?), text=(?), tags=(?) WHERE id=(?)",
-                        [title, date, author, text, tags, id]);
+                  [title, date, author, text, tags, id]);
 
                 res.write(head);
                 console.log(config.host);
@@ -271,7 +270,7 @@ https.createServer(opt, (req, res) => {
 
             })
           } else {
-           db.run("INSERT INTO posts (title, date, author, text, tags) VALUES (?, ?, ?, ?, ?)", [title, date, author, text, tags]);
+            db.run("INSERT INTO posts (title, date, author, text, tags) VALUES (?, ?, ?, ?, ?)", [title, date, author, text, tags]);
 
             res.write(head);
             res.write(`
@@ -301,7 +300,7 @@ https.createServer(opt, (req, res) => {
 
         let ids = params.get('id');
 
-        if(Array.isArray(ids)) {
+        if (Array.isArray(ids)) {
           ids.forEach(id => {
             db.run('DELETE FROM posts WHERE id=(?)', [id])
           })
