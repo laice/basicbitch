@@ -7,7 +7,7 @@ I got tired of dealing with bloated overhead apis when trying to spin up simple 
 
 # Setup
 1) Clone
-2) Copy or rename config.temaplate.json to config.json, and fill in your SSL credential paths (this is SSL only, fork it if you want to get insecure)
+2) Copy or rename config.temaplate.json to config.json, and fill in your SSL credential paths (this is SSL only, fork it if you want to get insecure), no trailing slash at the end of config.host
 3) Insert blog posts into directory /src/public/posts in the format of post_template.js
 4) ```node src/index.js```
 
