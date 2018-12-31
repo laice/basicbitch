@@ -1,4 +1,4 @@
-# basicbitch
+# basicblog
 a lightweight sqlite based node blog
 
 I got tired of dealing with bloated overhead apis when trying to spin up simple projects, so this is a blog that only requires the sqlite3 database module.
